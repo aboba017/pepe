@@ -8,8 +8,8 @@ namespace RepoAdminMenu {
         [HarmonyPatch("MessageSend")]
         [HarmonyPrefix]
         private static bool MessageSend_Prefix(ChatManager __instance, ref string ___chatMessage) {
-            // must be enabled and must be host or single player
-            if (!Configuration.EnableCommands.Value || !SemiFunc.IsMasterClientOrSingleplayer()) {
+            // must be enabled; allow clients to use commands too
+            if (!Configuration.EnableCommands.Value) {
                 return true;
             }
 

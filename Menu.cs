@@ -76,10 +76,7 @@ namespace RepoAdminMenu {
                 return;
             }
 
-            if (!SemiFunc.IsMasterClientOrSingleplayer()) {
-                RepoAdminMenu.mls.LogInfo("Repo Admin Menu can only be opened in single player or as host in multiplayer!");
-                return;
-            }
+            // Allow menu opening for clients as well (no host-only restriction)
 
             if (currentMenu != null && currentMenu.isActiveAndEnabled) {
                 closePage(currentMenu);
